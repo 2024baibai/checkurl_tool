@@ -1,0 +1,52 @@
+{%extends 'base.html'%}
+{%block title%}友链检测{%endblock title%}
+
+{%block content%}
+
+<div class="text-center jumbotron">
+
+<h1>友链检测程序</h1>
+  <p>本程序旨在针对拥有大量友链的网站，进行友链检测。可检测友链是否死链和对方网站是否还放有你的网站链接。</p>
+  <p><small>亲，如果觉得好用，挂个友链吧！</small></p>
+  <textarea class="form-control" rows="1" width="80"><a href="http://www.video4sex.com/check_url" rel="nofollow" target="_blank">友链检测工具</a></textarea>
+<form class="form-inline" id="CheckForm" method="POST" action="/check_ajax">
+  <div class="form-group">
+    <label for="url">你的网站（请带http://或者https://）</label>
+    <input type="url" class="form-control" id="url" name="url" placeholder="http://www.video4sex.com">
+  </div>
+  <div class="form-group">
+    <label for="word">检测关键词（网址或者名字）</label>
+    <input type="text" class="form-control" id="word" name="word" placeholder="video4sex.com">
+  </div>
+  <button type="submit" class="btn btn-default" id="check">检测</button>
+</form>
+
+<hr>
+<div id="url_tongji" style="display: none;">
+<div class="row">
+<div class="res-box col-md-12">
+<div class="col-md-8 col-md-offset-2 text-center">
+<span class="col-md-4">出站链接:<em class="blue" id="outLinks">3</em>个</span>
+<span class="col-md-4">反向链接:<em class="green" id="okLinks">2</em>个</span>
+<span class="col-md-4">无反链:<em class="red" id="noLnks">1</em>个</span>
+</div>
+</div>
+<div id="result" style="display: none;">
+    <table class="check-table table table-striped">
+    <thead>
+    <tr class="text-center">
+    <td class="col-xs-6 col-sm-3">序号</td>
+    <td class="col-xs-6 col-sm-3">站点</td>
+    <td class="col-xs-6 col-sm-3">对方状态</td>
+    <td class="col-xs-6 col-sm-3">反链检测</td>
+    </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+    </table>
+</div>
+</div>
+
+<script type="text/JavaScript" src="{{url_for('static',filename='js/checklink.js')}}"></script>
+
+{%endblock content%}

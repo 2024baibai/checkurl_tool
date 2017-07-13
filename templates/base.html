@@ -1,0 +1,101 @@
+{% block doc -%}
+
+<!DOCTYPE html>
+<html style="font-family:"Comic Sans MS","幼圆","黑体",sans-serif;">
+{%- block html %}
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="{%block kw-%}友链检测工具{%-endblock kw%}"/>
+    <meta name="description" content="免费检测友链状态" />
+    <meta property="og:site_name" content="友链检测工具"/>
+    {%- block head %}
+    <title>{% block title %}{% endblock title %}{{test}}</title>
+    {%- block styles %}
+    <!-- Bootstrap -->
+   <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css" />
+   <link rel='stylesheet'  href="{{url_for('static',filename='css/main.css')}}" type="text/css"  />
+   <link rel='stylesheet'  href='https://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.css' type='text/css' media='all' />
+   <link href="{{url_for('static',filename='css/common.css')}}" rel="stylesheet">
+   <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+   <script src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.js"></script>
+    <link rel="shortcut icon" href="{{url_for('static',filename='image/favicon.ico')}}">
+    <style>.incap_page-tooltip{display:none;}</style>
+    {%- endblock styles %}
+    {%- endblock head %}
+  </head>
+<body class="home blog">
+<header class="header">
+  <div class="container">
+    <h1 class="logo"><a href="/" title="video4sex">友链检测工具</a></h1>
+    <ul class="site-nav site-navbar">
+      <li id="menu-item-0" ><a rel="nofollow" href="/"><i class="fa fa-home"></i>&nbsp;&nbsp;友链检测</a></li>
+      <li id="menu-item-0" ><a rel="nofollow" href="//www.video4sex.com"><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;video4sex</a></li>
+      <li id="menu-item-0" ><a rel="nofollow" href="//www.r18dh.com"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;R18导航</a></li>
+      <li id="menu-item-0" ><a rel="nofollow" href="//www.jjav.me"><i class="fa fa-female"></i>&nbsp;&nbsp;大姐姐AV</a></li>
+      <li id="menu-item-0" ><a rel="nofollow" href="//www.jjav.club"><i class="fa fa-star"></i>&nbsp;&nbsp;大姐姐AV俱乐部</a></li>
+      <li id="menu-item-0" ><a rel="nofollow" href="//www.tangrela.com"><i class="fa fa-vimeo-square"></i>&nbsp;&nbsp;汤热啦</a></li>
+      <li id="menu-item-0" ><a rel="nofollow" href="//www.tumbgo.com"><i class="fa fa-tumblr"></i>&nbsp;&nbsp;tumblr自助餐</a></li>
+    </ul>
+    <div class="topbar">
+      <a href="https://jq.qq.com/?_wv=1027&k=4ASNHDq">本站QQ交流群</a>
+      <a href="https://t.me/joinchat/AAAAAERy67yUW1UARSOVOQ">本站TG交流群</a>
+      </div>
+    <i class="fa fa-bars m-icon-nav"></i>
+    </div>
+</header>
+
+<hr>
+
+<section class="container">
+  <div class="content-wrap">
+    <div class="content">
+      <div class="title">
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning text-center" style="max-width: 600px;margin:0 auto;">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{message}}
+        </div>
+    {%endfor%}
+    {% block content %}{% endblock %}
+    </div>
+    </div>
+  </div>
+</section>
+<footer>
+{%block footer%}
+<div class="yqlj">
+  <div class="yqljbt">
+    <div class="yqljbt_l"> <a href="javascript:void(0);" target="_blank">友情链接</a></div>
+    <div class="yqljbt_r"><a href="mailto:video4sexroot@gmail.com" target="_blank">申请</a></div>
+  </div>
+  <div class="yqljlb">
+    <ul>
+
+        <li><a href="http://www.video4sex.com" rel="nofollow" target="_blank">video4sex</a></li>
+
+      </ul>
+  </div>
+</div>
+{%endblock%}
+<footer class="footer">
+  <div class="container">
+    <div class="fcode"> </div>
+    <small>【站点申明】我们立足于美利坚合众国，对全球华人服务，受北美法律保护。未经授权禁止复制或建立镜像。注意：本站属于限制级，如果您未满18岁请速离开，为了您的学业与健康成长，谢谢合作！ 本站为全球华人服务,由于限制级不对中国开放,如果您所在地区为中国请遵守中国法律,关闭网站。
+    <p>申请友链请联系: video4sexroot#gmail.com (#换成@)</p>
+     </div>
+</footer>
+
+{% block scripts %}
+{%- endblock scripts %}
+
+<script src="http://apps.bdimg.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<div>
+
+</div>
+  </body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}
